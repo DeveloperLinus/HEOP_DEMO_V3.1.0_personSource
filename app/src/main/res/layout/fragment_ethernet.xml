@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.hik.app.main.config.feature.ethernet.EthernetViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/app_back_all"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#4C000000"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                onClick="@{vm.cancel_config}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="-17dp"
+                android:src="@mipmap/arrow_left" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_horizontal"
+                android:text="配置有线网络"
+                android:textColor="@color/white"
+                android:textSize="50sp" />
+
+            <ImageView
+                onClick="@{vm.accept_config}"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/accept" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topBar" />
+
+        <RelativeLayout
+            android:id="@+id/ipAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#99000000"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/topBar">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="50dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="IPv4地址"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toStartOf="@+id/config_ipAddress"
+                android:text="@{vm.ipAddress}"
+                android:textColor="@color/white"
+                android:textSize="26sp" />
+
+            <ImageView
+                android:id="@+id/config_ipAddress"
+                onClick="@{vm.config_ipAddress}"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_gravity="end"
+                android:src="@mipmap/arrow_right" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/subnetMask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#99000000"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/ipAddress">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="50dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="子网掩码"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toStartOf="@+id/config_subnetMask"
+                android:text="@{vm.subnetMask}"
+                android:textColor="@color/white"
+                android:textSize="26sp" />
+
+            <ImageView
+                android:id="@+id/config_subnetMask"
+                onClick="@{vm.config_subnetMask}"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_gravity="end"
+                android:src="@mipmap/arrow_right" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/defaultGateway"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#99000000"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/subnetMask">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="50dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="默认网关"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toStartOf="@+id/config_defaultGateway"
+                android:text="@{vm.defaultGateway}"
+                android:textColor="@color/white"
+                android:textSize="26sp" />
+
+            <ImageView
+                android:id="@+id/config_defaultGateway"
+                onClick="@{vm.config_defaultGateway}"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_gravity="end"
+                android:src="@mipmap/arrow_right" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/primaryDNS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#99000000"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/defaultGateway">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="50dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="主DNS服务器"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toStartOf="@+id/config_primaryDNS"
+                android:text="@{vm.primaryDNS}"
+                android:textColor="@color/white"
+                android:textSize="26sp" />
+
+            <ImageView
+                android:id="@+id/config_primaryDNS"
+                onClick="@{vm.config_primaryDNS}"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_gravity="end"
+                android:src="@mipmap/arrow_right" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/secondaryDNS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#99000000"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/primaryDNS">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="50dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="备用DNS服务"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toStartOf="@+id/config_secondaryDNS"
+                android:text="@{vm.secondaryDNS}"
+                android:textColor="@color/white"
+                android:textSize="26sp" />
+
+            <ImageView
+                android:id="@+id/config_secondaryDNS"
+                onClick="@{vm.config_secondaryDNS}"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_gravity="end"
+                android:src="@mipmap/arrow_right" />
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

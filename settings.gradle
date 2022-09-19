@@ -1,0 +1,4 @@
+rootProject.name='Hi HEOP'
+include ':app'
+include ':archi'
+include ':proto'

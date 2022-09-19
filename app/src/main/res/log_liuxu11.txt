@@ -1,0 +1,276 @@
+【产品需求描述】：
+长按屏幕进入后台配置页面；
+点击页面中的人员管理按钮，转入人员管理页面；
+页面最上方显示一个搜索栏；
+页面下部分时一个可滑动的人员列表；
+列表需要实现下拉刷新和上拉加载更多；
+页面的ToolBar用来返回按钮和添加人员按钮；
+长按点击每一位人员可以单独删除该人员；
+单独点击每一位人员会跳转到对应人员信息的修改页面；
+人员信息修改页面可以修改人员的工号、姓名、卡号、房间号等信息；
+人员信息页面保存时需要校验人员信息是否正确并有相应提示；
+
+hicore：
+[CHG]2021/3/31：修改设置采集模式(指纹采集)时的控制位逻辑
+java:
+2021/3/22：保留Adapter修改记录，但未实现
+2021/3/25：增加App和hicore协议交互，实现人员列表加载人员信息
+2021/3/26：实现人员列表加载人员信息（优化）
+2021/3/26：实现添加用户页面
+2021/3/29：实现添加用户页面（优化）
+2021/3/29：实现添加用户功能
+2021/3/30：实现查询、删除用户功能
+2021/3/31：实现采集指纹功能（只实现协议交互，UI待优化）
+2021/4/1：实现采集卡片(刷卡采集)功能（只实现协议交互，UI待优化）
+2021/4/1：实现采集人脸功能（只实现协议交互，UI待优化）
+[CHG]增加采集结束后，重置认证状态
+SDK Demo测试报文
+//获取人员列表
+GET /ISAPI/AccessControl/UserInfo/UserList?format=json
+{
+    "UserInfoGetCond": {
+        "startDbID": 0,
+        "maxCount": 3
+    }
+}
+返回数据
+{
+	"UserInfoGet":	{
+		"endDbID":	0,
+		"maxCount":	2,
+		"UserInfo":	[{
+				"employeeNo":	"1",
+				"name":	"刘续",
+				"userType":	"normal",
+				"Valid":	{
+					"enable":	true,
+					"beginTime":	"2004-03-04T00:00:00",
+					"endTime":	"2023-11-09T09:30:59"
+				},
+				"roomNumber":	5,
+				"floorNumber":	5,
+				"dynamicCode":	"",
+				"localUIRight":	false,
+				"numOfFace":	1,
+				"numOfFP":	1,
+				"numOfCard":	1
+			}, {
+				"employeeNo":	"2",
+				"name":	"小熊",
+				"userType":	"normal",
+				"Valid":	{
+					"enable":	true,
+					"beginTime":	"2003-02-06T00:00:00",
+					"endTime":	"2023-06-22T23:59:59"
+				},
+				"roomNumber":	5,
+				"floorNumber":	5,
+				"dynamicCode":	"",
+				"localUIRight":	false,
+				"numOfFace":	1,
+				"numOfFP":	0,
+				"numOfCard":	1
+			}]
+	}
+}
+//查询人员信息
+POST /ISAPI/AccessControl/UserInfo/Search?format=json
+{
+    "UserInfoSearchCond": {
+        "searchID": "100000",
+        "searchResultPosition": 0,
+        "maxResults": 3,
+        "EmployeeNoList" : [
+            {
+                "employeeNo": "1"
+            }
+        ]
+    }
+}
+返回结果
+{
+	"UserInfoSearch":	{
+		"searchID":	"100000",
+		"responseStatusStrg":	"OK",
+		"numOfMatches":	1,
+		"totalMatches":	1,
+		"UserInfo":	[{
+				"employeeNo":	"1",
+				"name":	"刘续",
+				"userType":	"normal",
+				"Valid":	{
+					"enable":	true,
+					"beginTime":	"2004-03-04T00:00:00",
+					"endTime":	"2023-11-09T09:30:59"
+				},
+				"floorNumbers":	[5],
+				"callNumbers":	["1-1-1-505"],
+				"roomNumber":	5,
+				"floorNumber":	5,
+				"numOfFace":	1,
+				"numOfFP":	1,
+				"numOfCard":	1,
+				"dynamicCode":	"NULL",
+				"localUIRight":	false
+			}]
+	}
+}
+//增、改人员信息
+PUT /ISAPI/AccessControl/UserInfo/SetUp?format=json
+{
+	"UserInfo":	{
+			"employeeNo":	"151",
+			"name":	"liuxu11",
+			"userType":	"normal",
+			"roomNumber":	5,
+			"floorNumber":	5,
+			"Valid":	{
+				"enable":	true,
+				"beginTime":	"2021-03-01T00:00:00",
+				"endTime":	"2031-02-28T23:59:59"
+			},
+			"checkUser":	false,
+			"dynamicCode":	"",
+			"localUIRight":	false,
+			"maxOpenDoorTime":	5
+		}
+}
+返回结果：
+{
+	"requestURL":	"/ISAPI/AccessControl/UserInfo/SetUp",
+	"statusCode":	1,
+	"statusString":	"OK",
+	"subStatusCode":	"ok"
+}
+//删除人员信息
+PUT /ISAPI/AccessControl/UserInfo/Delete?format=json
+{
+	"UserInfoDelCond":	{
+        "EmployeeNoList" : [
+            {
+                "employeeNo": "1"
+            }
+        ]
+    }
+}
+返回结果
+{
+	"requestURL":	"/ISAPI/AccessControl/UserInfo/Delete",
+	"statusCode":	1,
+	"statusString":	"OK",
+	"subStatusCode":	"ok"
+}
+获取指纹信息
+POST /ISAPI/AccessControl/FingerPrintUpload?format=json
+{
+	"FingerPrintCond":{
+		"searchID":"1000",
+		"employeeNo":"1",
+		"cardReaderNo":1,
+		"fingerPrintID":1
+	}
+}
+返回结果
+{
+	"FingerPrintInfo":	{
+		"searchID":	"1000",
+		"status":	"NoFP",
+		"FingerPrintList":	[{
+				"cardReaderNo":	1,
+				"fingerPrintID":	1,
+				"fingerType":	"normalFP",
+				"fingerData":	"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+			}]
+	}
+}
+指纹采集预处理
+POST  /ISAPI/UI/authMode?format=json
+{
+	"authMode": 4,
+	"detail": 3
+}
+返回结果
+{
+	"requestURL":	"/ISAPI/UI/authMode",
+	"statusCode":	1,
+	"statusString":	"OK",
+	"subStatusCode":	"ok"
+}
+指纹采集   1073741825
+POST /ISAPI/AccessControl/CaptureFingerPrint
+<CaptureFingerPrintCond version="2.0" xmlns="http://www.isapi.org/ver20/XMLSchema">
+      <fingerNo>2</fingerNo>
+</CaptureFingerPrintCond>
+返回结果
+<CaptureFingerPrint version="2.0" xmlns="http://www.isapi.org/ver20/XMLSchema">
+	<fingerData>MzAxGRUJJXjsxSK9Jii8RkS5JTjgSFFxFUjswFHBFGjstli5JSjcvyVZFWj4S4J9Fli0PlclFkjUSnddJSjgRJKpJSi8PICNJHjEt285FGjUQohZJEi8Rq+BFBicRbLRFCisRbedJDiUv2XZJijQvdnhJVjYOOVVJUjQQuzYFfj4RfdQFljwvSa1JEjoRy+ZFEjQzTO5JGjQRQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYBMACAgkkeoJRDBxACJSBb8MHCBjmgPAkBogIcYCSDpZBGOxCEpaJhWEmAo8EGsxM3MEtvtuSVJiBz4dUDNA6wu30RADEtUGS68vISKMGEUiEgIT6A1GHHYSRiYXzXBbJSO9Eb1CTzAQ3gxCVgxApegPRctsBVBUAMVjW3PhvhW9RSJV4ocTQgAAAAAAAm8=</fingerData>
+	<fingerNo>2</fingerNo>
+	<fingerPrintQuality>96</fingerPrintQuality>
+</CaptureFingerPrint>
+人脸采集预处理
+POST  /ISAPI/UI/authMode?format=json
+{
+	"authMode": 4,
+	"detail": 1
+}
+人脸采集
+POST /ISAPI/AccessControl/CaptureFaceData
+<CaptureFaceDataCond version="2.0" xmlns="http://www.isapi.org/ver20/XMLSchema">
+      <captureInfrared>false</captureInfrared>
+	  <dataType>url</dataType>
+</CaptureFaceDataCond>
+返回结果
+<CaptureFaceData version="2.0" xmlns="http://www.isapi.org/ver20/XMLSchema">
+    <faceDataUrl>/home/config/capture/remote_capture_1.jpg</faceDataUrl>
+    <captureProgress>100</captureProgress>
+</CaptureFaceData>
+http://10.6.120.234/home/config/capture/remote_capture_1.jpg
+认证事件
+http://10.6.120.234/face/1.jpg
+查询卡片信息
+POST /ISAPI/AccessControl/CardInfo/Search?format=json
+{
+	"CardInfoSearchCond":{
+		"searchID":"1000",
+		"searchResultPosition":0,
+		"maxResults":30,
+		"EmployeeNoList":[
+            {
+                "employeeNo": "1"
+            }
+        ]
+	}
+}
+返回结果
+{
+	"CardInfoSearch":	{
+		"searchID":	"1000",
+		"responseStatusStrg":	"OK",
+		"numOfMatches":	1,
+		"totalMatches":	1,
+		"CardInfo":	[{
+				"employeeNo":	"1",
+				"cardNo":	"123",
+				"cardType":	"normalCard"
+			}]
+	}
+}
+卡片采集预处理
+POST  /ISAPI/UI/authMode?format=json
+{
+	"authMode": 4,
+	"detail": 2
+}
+卡片采集
+GET /ISAPI/AccessControl/CaptureCardInfo?format=json
+返回结果
+{
+	"CardInfo":	{
+		"cardNo":	"0777902928"
+	}
+}
+NTP校时
+
+
+
+

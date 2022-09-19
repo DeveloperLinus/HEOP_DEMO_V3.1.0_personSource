@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_mini">10dp</dimen>
+    <dimen name="margin_small">14dp</dimen>
+    <dimen name="margin_normal">20dp</dimen>
+    <dimen name="margin_middle">30dp</dimen>
+    <dimen name="margin_big">40dp</dimen>
+    <dimen name="margin_bigger">52dp</dimen>
+    <dimen name="margin_larger">64dp</dimen>
+
+    <!--输入条目高度-->
+    <dimen name="item_height">96dp</dimen>
+
+    <!--分隔线宽高-->
+    <dimen name="divide_height">80dp</dimen>
+    <dimen name="divide_size">1dp</dimen>
+    <!--分割块的高度-->
+    <dimen name="divide_height_block">20dp</dimen>
+
+    <!-- 用于新内容距离上部内容的距离-->
+    <dimen name="new_content">80dp</dimen>
+
+    <!--按钮高度-->
+    <dimen name="btn_height_middle">84dp</dimen>
+    <dimen name="btn_height_little">60dp</dimen>
+    <!--标题栏高度-->
+    <dimen name="title_height">100dp</dimen>
+    <!--用于距离父类的距离-->
+    <dimen name="margin_father_left">30dp</dimen>
+    <dimen name="margin_father_right">30dp</dimen>
+    <dimen name="margin_father_top">30dp</dimen>
+    <dimen name="padding_edit_left">30dp</dimen>
+    <dimen name="padding_left">30dp</dimen>
+    <dimen name="padding_right">30dp</dimen>
+
+    <dimen name="edit_padding_left">25dp</dimen>
+    <dimen name="edit_padding_right">25dp</dimen>
+
+    <!--密码等级-->
+    <dimen name="safety_bar_gap">16dp</dimen>
+    <dimen name="safety_bar_height">14dp</dimen>
+    <dimen name="safety_bar_width">120dp</dimen>
+    <dimen name="safety_bar_conner">7dp</dimen>
+
+    <!--人员管理相关-->
+    <!--人员信息条目高度-->
+    <dimen name="user_item_height">70dp</dimen>
+    <!--分隔线宽高-->
+    <dimen name="user_divide_width">640dp</dimen>
+    <dimen name="user_divide_height">2dp</dimen>
+    <!--工号区域宽度-->
+    <dimen name="user_id_width">120dp</dimen>
+    <!--姓名区域宽度-->
+    <dimen name="user_name_width">100dp</dimen>
+
+    <!--添加用户界面-->
+    <!--列表参数宽度-->
+    <dimen name="user_param_width">130dp</dimen>
+
+    <!--文字大小-->
+    <dimen name="text_size_little">24sp</dimen>
+    <dimen name="text_size_middle">26sp</dimen>
+    <dimen name="text_size_big">30sp</dimen>
+
+</resources>

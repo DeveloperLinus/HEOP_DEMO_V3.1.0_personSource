@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.hik.app.main.user.useradd.UserAddViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/app_back_all">
+
+       <RelativeLayout
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#4C000000"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                onClick="@{vm.cancel_config}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/arrow_left" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/config_addUser"
+                android:textColor="@color/white"
+                android:textSize="50sp" />
+
+            <ImageView
+                onClick="@{vm.accept_config}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/icon_save" />
+       </RelativeLayout>
+
+       <View
+            android:id="@+id/view1"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topBar" />
+
+        <RelativeLayout
+            android:id="@+id/userId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/topBar">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="50dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="@string/config_userId"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toStartOf="@+id/config_userId"
+                android:text="@{vm.userId}"
+                android:hint="@string/input_please"
+                android:textColorHint="@color/gray"
+                android:textColor="@color/white"
+                android:textSize="26sp" />
+
+            <ImageView
+                android:id="@+id/config_userId"
+                onClick="@{vm.config_userId}"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_gravity="end"
+                android:src="@mipmap/arrow_right" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/userName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/userId">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="50dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="@string/config_userName"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toStartOf="@+id/config_userName"
+                android:text="@{vm.userName}"
+                android:hint="@string/input_please"
+                android:textColorHint="@color/gray"
+                android:textColor="@color/white"
+                android:textSize="26sp" />
+
+            <ImageView
+                android:id="@+id/config_userName"
+                onClick="@{vm.config_userName}"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_gravity="end"
+                android:src="@mipmap/arrow_right" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/userCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/userName">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="50dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="@string/config_userCard"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toStartOf="@+id/config_userCard"
+                android:text="@{vm.userCard}"
+                android:textColor="@color/white"
+                android:textSize="26sp" />
+
+            <ImageView
+                android:id="@+id/config_userCard"
+                onClick="@{vm.config_userCard}"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_gravity="end"
+                android:src="@mipmap/arrow_right" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/userFace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/userCard">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="50dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="@string/config_userFace"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toStartOf="@+id/config_userFace"
+                android:text="@{vm.userFace}"
+                android:textColor="@color/white"
+                android:textSize="26sp" />
+
+            <ImageView
+                android:id="@+id/config_userFace"
+                onClick="@{vm.config_userFace}"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_gravity="end"
+                android:src="@mipmap/arrow_right" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/userFp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/userFace">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="50dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="@string/config_userFp"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toStartOf="@+id/config_userFp"
+                android:text="@{vm.userFp}"
+                android:textColor="@color/white"
+                android:textSize="26sp" />
+
+            <ImageView
+                android:id="@+id/config_userFp"
+                onClick="@{vm.config_userFp}"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_gravity="end"
+                android:src="@mipmap/arrow_right" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/userRight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/userFp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="50dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="@string/config_userRight"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toStartOf="@+id/config_userRight"
+                android:text="@{vm.userRight}"
+                android:textColor="@color/white"
+                android:textSize="26sp" />
+
+            <ImageView
+                android:id="@+id/config_userRight"
+                onClick="@{vm.config_userRight}"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_gravity="end"
+                android:src="@mipmap/arrow_right" />
+
+        </RelativeLayout>
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="900dp"-->
+<!--            android:orientation="vertical"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/topBar">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/user_item_height"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/user_id"-->
+<!--                    android:layout_width="@dimen/user_param_width"-->
+<!--                    android:layout_height="@dimen/user_item_height"-->
+<!--                    android:gravity="center_vertical|start"-->
+<!--                    android:layout_marginStart="80dp"-->
+<!--                    android:text="@string/config_userId"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="@dimen/text_size_big"/>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/user_id_input"-->
+<!--                    android:layout_width="80dp"-->
+<!--                    android:layout_height="@dimen/user_item_height"-->
+<!--                    android:layout_marginStart="300dp"-->
+<!--                    android:gravity="center_vertical|end"-->
+<!--                    android:text="@string/input_please"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="@dimen/text_size_little"/>-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/user_id_pic"-->
+<!--                    android:layout_width="35dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:gravity="center_vertical|start"-->
+<!--                    android:src="@mipmap/arrow_right"/>-->
+<!--            </LinearLayout>-->
+
+<!--            <View-->
+<!--                android:id="@+id/line_userId"-->
+<!--                android:layout_width="@dimen/user_divide_width"-->
+<!--                android:layout_height="@dimen/user_divide_height"-->
+<!--                android:layout_gravity="bottom|center"-->
+<!--                android:background="@color/gray"/>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/user_item_height"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/user_name"-->
+<!--                    android:layout_width="@dimen/user_param_width"-->
+<!--                    android:layout_height="@dimen/user_item_height"-->
+<!--                    android:gravity="center_vertical|start"-->
+<!--                    android:layout_marginStart="80dp"-->
+<!--                    android:text="@string/config_userName"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="@dimen/text_size_big"/>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/user_name_input"-->
+<!--                    android:layout_width="80dp"-->
+<!--                    android:layout_height="@dimen/user_item_height"-->
+<!--                    android:gravity="center_vertical|end"-->
+<!--                    android:layout_marginStart="300dp"-->
+<!--                    android:text="@string/input_please"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="@dimen/text_size_little"/>-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/user_name_pic"-->
+<!--                    android:layout_width="35dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:gravity="center_vertical|start"-->
+<!--                    android:src="@mipmap/arrow_right"/>-->
+<!--            </LinearLayout>-->
+
+<!--            <View-->
+<!--                android:id="@+id/line_userName"-->
+<!--                android:layout_width="@dimen/user_divide_width"-->
+<!--                android:layout_height="@dimen/user_divide_height"-->
+<!--                android:layout_gravity="bottom|center"-->
+<!--                android:background="@color/gray"/>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/user_item_height"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/user_card"-->
+<!--                    android:layout_width="@dimen/user_param_width"-->
+<!--                    android:layout_height="@dimen/user_item_height"-->
+<!--                    android:gravity="center_vertical|start"-->
+<!--                    android:layout_marginStart="80dp"-->
+<!--                    android:text="@string/config_userCard"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="@dimen/text_size_big"/>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/user_card_input"-->
+<!--                    android:layout_width="80dp"-->
+<!--                    android:layout_height="@dimen/user_item_height"-->
+<!--                    android:gravity="center_vertical|end"-->
+<!--                    android:layout_marginStart="300dp"-->
+<!--                    android:text="@string/input_please"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="@dimen/text_size_little"/>-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/user_card_pic"-->
+<!--                    android:layout_width="35dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:gravity="center_vertical|start"-->
+<!--                    android:src="@mipmap/arrow_right"/>-->
+<!--            </LinearLayout>-->
+
+<!--            <View-->
+<!--                android:id="@+id/line_userCard"-->
+<!--                android:layout_width="@dimen/user_divide_width"-->
+<!--                android:layout_height="@dimen/user_divide_height"-->
+<!--                android:layout_gravity="bottom|center"-->
+<!--                android:background="@color/gray"/>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/user_item_height"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/user_face"-->
+<!--                    android:layout_width="@dimen/user_param_width"-->
+<!--                    android:layout_height="@dimen/user_item_height"-->
+<!--                    android:gravity="center_vertical|start"-->
+<!--                    android:layout_marginStart="80dp"-->
+<!--                    android:text="@string/config_userFace"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="@dimen/text_size_big"/>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/user_face_input"-->
+<!--                    android:layout_width="80dp"-->
+<!--                    android:layout_height="@dimen/user_item_height"-->
+<!--                    android:gravity="center_vertical|end"-->
+<!--                    android:layout_marginStart="300dp"-->
+<!--                    android:text="@string/input_please"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="@dimen/text_size_little"/>-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/user_face_pic"-->
+<!--                    android:layout_width="35dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:gravity="center_vertical|start"-->
+<!--                    android:src="@mipmap/arrow_right"/>-->
+<!--            </LinearLayout>-->
+
+<!--            <View-->
+<!--                android:id="@+id/line_userFace"-->
+<!--                android:layout_width="@dimen/user_divide_width"-->
+<!--                android:layout_height="@dimen/user_divide_height"-->
+<!--                android:layout_gravity="bottom|center"-->
+<!--                android:background="@color/gray"/>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/user_item_height"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/user_fp"-->
+<!--                    android:layout_width="@dimen/user_param_width"-->
+<!--                    android:layout_height="@dimen/user_item_height"-->
+<!--                    android:gravity="center_vertical|start"-->
+<!--                    android:layout_marginStart="80dp"-->
+<!--                    android:text="@string/config_userFp"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="@dimen/text_size_big"/>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/user_fp_input"-->
+<!--                    android:layout_width="80dp"-->
+<!--                    android:layout_height="@dimen/user_item_height"-->
+<!--                    android:gravity="center_vertical|end"-->
+<!--                    android:layout_marginStart="300dp"-->
+<!--                    android:text="@string/input_please"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="@dimen/text_size_little"/>-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/user_fp_pic"-->
+<!--                    android:layout_width="35dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:gravity="center_vertical|start"-->
+<!--                    android:src="@mipmap/arrow_right"/>-->
+<!--            </LinearLayout>-->
+
+<!--            <View-->
+<!--                android:id="@+id/line_userFp"-->
+<!--                android:layout_width="@dimen/user_divide_width"-->
+<!--                android:layout_height="@dimen/user_divide_height"-->
+<!--                android:layout_gravity="bottom|center"-->
+<!--                android:background="@color/gray"/>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/user_item_height"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/user_right"-->
+<!--                    android:layout_width="@dimen/user_param_width"-->
+<!--                    android:layout_height="@dimen/user_item_height"-->
+<!--                    android:gravity="center_vertical|start"-->
+<!--                    android:layout_marginStart="80dp"-->
+<!--                    android:text="@string/config_userRight"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="@dimen/text_size_big"/>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/user_right_input"-->
+<!--                    android:layout_width="80dp"-->
+<!--                    android:layout_height="@dimen/user_item_height"-->
+<!--                    android:gravity="center_vertical|end"-->
+<!--                    android:layout_marginStart="300dp"-->
+<!--                    android:text="@string/input_please"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="@dimen/text_size_little"/>-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/user_right_pic"-->
+<!--                    android:layout_width="35dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:gravity="center_vertical|start"-->
+<!--                    android:src="@mipmap/arrow_right"/>-->
+<!--            </LinearLayout>-->
+
+<!--            <View-->
+<!--                android:id="@+id/line_userRight"-->
+<!--                android:layout_width="@dimen/user_divide_width"-->
+<!--                android:layout_height="@dimen/user_divide_height"-->
+<!--                android:layout_gravity="bottom|center"-->
+<!--                android:background="@color/gray"/>-->
+
+<!--        </LinearLayout>-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

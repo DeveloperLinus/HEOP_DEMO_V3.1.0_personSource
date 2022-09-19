@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_0"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:cursorVisible="false"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:maxLength="3"
+            android:selectAllOnFocus="true"
+            android:singleLine="true" />
+
+        <TextView
+            android:textSize="40sp"
+            android:text="·"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/et_1"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:cursorVisible="false"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:maxLength="3"
+            android:selectAllOnFocus="true"
+            android:singleLine="true" />
+
+        <TextView
+            android:textSize="40sp"
+            android:text="·"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/et_2"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:cursorVisible="false"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:maxLength="3"
+            android:selectAllOnFocus="true"
+            android:singleLine="true" />
+
+        <TextView
+            android:textSize="40sp"
+            android:text="·"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/et_3"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:cursorVisible="false"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:maxLength="3"
+            android:selectAllOnFocus="true"
+            android:singleLine="true" />
+
+    </LinearLayout>
+
+</LinearLayout>

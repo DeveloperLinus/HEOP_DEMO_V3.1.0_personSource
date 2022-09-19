@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.hik.app.main.config.feature.verifymode.VerifyModeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/app_back_all">
+
+        <RelativeLayout
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#4C000000"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                onClick="@{vm.cancel_config}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/arrow_left" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                android:text="配置认证模式"
+                android:textColor="@color/white"
+                android:textSize="50sp" />
+
+            <ImageView
+                onClick="@{vm.accept_config}"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/accept" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topBar" />
+
+        <RelativeLayout
+            android:id="@+id/config_face"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#99000000"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/topBar">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="50dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="人脸认证"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+
+            <ToggleButton
+                onCheckedChange="@{vm.face_changed}"
+                android:checked="@{vm.face_checked}"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/tbtn_config"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/config_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#99000000"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/config_face">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="50dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="卡片认证"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+
+            <ToggleButton
+                onCheckedChange="@{vm.card_changed}"
+                android:checked="@{vm.card_checked}"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/tbtn_config"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/config_fp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#99000000"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/config_card">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="50dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="指纹认证"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+
+            <ToggleButton
+                onCheckedChange="@{vm.fp_changed}"
+                android:checked="@{vm.fp_checked}"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/tbtn_config"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/config_qr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#99000000"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/config_fp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="50dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="二维码认证"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+
+            <ToggleButton
+                onCheckedChange="@{vm.qr_changed}"
+                android:checked="@{vm.qr_checked}"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/tbtn_config"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

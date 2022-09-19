@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/user_id"
+            android:layout_width="@dimen/user_id_width"
+            android:layout_height="@dimen/user_item_height"
+            android:gravity="center_vertical|start"
+            android:layout_marginStart="80dp"
+            android:textColor="@color/white"
+            android:textSize="26sp"/>
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="@dimen/user_name_width"
+            android:layout_height="@dimen/user_item_height"
+            android:gravity="center_vertical"
+            android:layout_marginStart="40dp"
+            android:textColor="@color/white"
+            android:textSize="26sp"/>
+
+        <ImageView
+            android:id="@+id/user_image_face"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/user_item_height"
+            android:gravity="center_vertical"
+            android:layout_marginStart="160dp"/>
+
+        <ImageView
+            android:id="@+id/user_image_fp"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/user_item_height"
+            android:gravity="center_vertical"
+            android:layout_marginStart="5dp"/>
+
+        <ImageView
+            android:id="@+id/user_image_card"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/user_item_height"
+            android:gravity="center_vertical"
+            android:layout_marginStart="5dp"/>
+
+        <ImageView
+            android:id="@+id/user_arrow_right"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/user_item_height"
+            android:gravity="center_vertical"
+            android:layout_marginStart="5dp"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="@dimen/user_divide_width"
+        android:layout_height="@dimen/user_divide_height"
+        android:layout_gravity="bottom|center"
+        android:background="@color/gray"/>
+
+</LinearLayout>

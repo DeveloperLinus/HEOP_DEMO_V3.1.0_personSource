@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/accessFragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/accessFragment"
+        android:name="com.hik.app.main.access.AccessFragment"
+        android:label="AccessFragment"
+        tools:layout="@layout/fragment_access">
+        <action
+            android:id="@+id/action_accessFragment_to_configFragment"
+            app:destination="@id/configFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/configFragment"
+        android:name="com.hik.app.main.config.ConfigFragment"
+        android:label="ConfigFragment"
+        tools:layout="@layout/fragment_config" >
+        <action
+            android:id="@+id/action_configFragment_to_ethernetFragment"
+            app:destination="@id/ethernetFragment" />
+        <action
+            android:id="@+id/action_configFragment_to_verifyModeFragment"
+            app:destination="@id/verifyModeFragment" />
+        <action
+            android:id="@+id/action_configFragment_to_userManageFragment"
+            app:destination="@id/userManageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userManageFragment"
+        android:name="com.hik.app.main.user.UserManageFragment"
+        android:label="UserManageFragment"
+        tools:layout="@layout/fragment_user_manage" >
+        <action
+            android:id="@+id/action_userManageFragment_to_userAddFragment"
+            app:destination="@id/userAddFragment" />
+        <action
+            android:id="@+id/action_userManageFragment_to_userInfoFragment"
+            app:destination="@id/userInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userInfoFragment"
+        android:name="com.hik.app.main.user.userinfo.UserInfoFragment"
+        android:label="UserInfoFragment"
+        tools:layout="@layout/fragment_user_info" />
+    <fragment
+        android:id="@+id/userAddFragment"
+        android:name="com.hik.app.main.user.useradd.UserAddFragment"
+        android:label="UserAddFragment"
+        tools:layout="@layout/fragment_user_add" >
+        <action
+            android:id="@+id/action_userAddFragment_to_cardManageFragment"
+            app:destination="@id/cardManageFragment" />
+        <action
+            android:id="@+id/action_userAddFragment_to_fpManageFragment"
+            app:destination="@id/fpManageFragment" />
+        <action
+            android:id="@+id/action_userAddFragment_to_faceCaptureFragment"
+            app:destination="@id/faceCaptureFragment" />
+<!--        <action-->
+<!--            android:id="@+id/action_userAddFragment_to_accessFragment"-->
+<!--            app:destination="@id/accessFragment" />-->
+    </fragment>
+    <fragment
+        android:id="@+id/fpManageFragment"
+        android:name="com.hik.app.main.user.fp.FpManageFragment"
+        android:label="FpManageFragment"
+        tools:layout="@layout/fragment_fp_manage" >
+        <action
+            android:id="@+id/action_fpManageFragment_to_fpCaptureFragment"
+            app:destination="@id/fpCaptureFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fpCaptureFragment"
+        android:name="com.hik.app.main.user.fp.FpCaptureFragment"
+        android:label="FpCaptureFragment"
+        tools:layout="@layout/fragment_fp_capture" />
+    <fragment
+        android:id="@+id/cardManageFragment"
+        android:name="com.hik.app.main.user.card.CardManageFragment"
+        android:label="CardManageFragment"
+        tools:layout="@layout/fragment_card_manage" >
+        <action
+            android:id="@+id/action_cardManageFragment_to_cardCaptureFragment"
+            app:destination="@id/cardCaptureFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardCaptureFragment"
+        android:name="com.hik.app.main.user.card.CardCaptureFragment"
+        android:label="CardCaptureFragment"
+        tools:layout="@layout/fragment_card_capture" />
+    <fragment
+        android:id="@+id/faceCaptureFragment"
+        android:name="com.hik.app.main.user.face.FaceCaptureFragment"
+        android:label="FaceCaptureFragment"
+        tools:layout="@layout/fragment_face_capture" />
+    <fragment
+        android:id="@+id/personFragment"
+        android:name="com.hik.app.main.person.PersonFragment"
+        android:label="PersonFragment"
+        tools:layout="@layout/fragment_person" />
+	<fragment
+        android:id="@+id/phoneFragment"
+        android:name="com.hik.app.main.phone.PhoneFragment"
+        android:label="PhoneFragment"
+        tools:layout="@layout/fragment_phone" />
+    <fragment
+        android:id="@+id/ethernetFragment"
+        android:name="com.hik.app.main.config.feature.ethernet.EthernetFragment"
+        android:label="EthernetFragment"
+        tools:layout="@layout/fragment_ethernet" />
+    <fragment
+        android:id="@+id/verifyModeFragment"
+        android:name="com.hik.app.main.config.feature.verifymode.VerifyModeFragment"
+        android:label="VerifyModeFragment"
+        tools:layout="@layout/fragment_verifymode" />
+</navigation>

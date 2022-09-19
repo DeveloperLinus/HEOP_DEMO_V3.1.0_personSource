@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">TEST liuxu11</string>
+    <string name="activate">激活</string>
+    <string name="config_ethernet">网络配置</string>
+    <string name="config_verifymode">认证模式配置</string>
+    <string name="config_usermanage">人员管理</string>
+    <string name="config_personManage">用户管理</string>
+    <string name="config_fpManage">指纹管理</string>
+    <string name="config_cardManage">卡片管理</string>
+    <string name="config_addUser">添加用户</string>
+    <string name="config_userInfo">用户详情</string>
+
+    <!--用户参数-->
+    <string name="config_userId">工号</string>
+    <string name="config_userName">姓名</string>
+    <string name="config_userFace">人脸</string>
+    <string name="config_userFp">指纹</string>
+    <string name="config_userCard">卡片</string>
+    <string name="config_userRight">用户权限</string>
+    <string name="config_userDel">删除用户</string>
+
+    <!--提示语-->
+    <string name="input_please">请录入</string>
+    <string name="input_ok">已录入</string>
+    <string name="input_user_name">请输入用户名</string>
+    <string name="input_password">请输入密码</string>
+    <string name="input_fp">请将手指放在指纹识别器上</string>
+    <string name="input_card">请刷卡采集</string>
+    <string name="input_face">请刷脸采集</string>
+
+</resources>
